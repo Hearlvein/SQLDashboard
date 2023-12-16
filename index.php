@@ -1,5 +1,7 @@
 <?php
 
+$table = 'user';
+
 try {
     $PDO = new PDO('mysql:host=localhost:3306;dbname=app', 'root', 'root');
 } catch (Exception $e) {
@@ -37,8 +39,6 @@ function partial_update_fields_by_id($table, $fields)
 
     return $query->rowCount() > 0 ? true : false;
 }
-
-$table = 'user';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['id_name'], $_POST['id_value'], $_POST['fields']) && is_array($_POST['fields'])) {
